@@ -28,6 +28,9 @@
 */
 
 // Code Here 
+function first(array,callback){
+  callback(array[0]); 
+}
 
 // Do not edit the code below.
 var names = ['Tyler', 'Cahlan', 'Ryan', 'Colt', 'Tyler', 'Blaine', 'Cahlan'];
@@ -48,6 +51,9 @@ first(names, function(firstName){
 */
 
 //Code Here
+function last(array,callback){
+  callback(array[array.length-1]);
+}
 
 // Do not edit the code below.
 last(names, function(lastName){
@@ -65,7 +71,9 @@ last(names, function(lastName){
   Invoke the callback, passing in the product of the two numbers multiplied as the argument. 
 */
 
-//Code Here
+function multiply(num1,num2,callback){
+  callback(num1*num2)
+}
 
 // Do not edit the code below.
 multiply(4, 3, function(answer){
@@ -84,7 +92,16 @@ multiply(4, 3, function(answer){
   If the name does not exist, invoke the callback with false as the argument.
 */
 
-//Code Here 
+
+function contains(array,name,callback){
+  for (var i=0; i < array.length; i+=1){
+    if(array[i]===name){
+      callback(true);
+    } else {
+      callback(false);
+    }
+  }
+}
 
 // Do not edit the code below.
 contains(names, 'Colt', function(result){
@@ -123,6 +140,11 @@ uniq(names, function(uniqArr){
 */
 
 //Code Here 
+function each(array,cb){
+  for (var i=0; i<array.length; i++){
+    cb(array[i],i);
+  }
+}
 
 // Do not edit the code below.
 each(names, function(item, indice){
@@ -140,7 +162,13 @@ each(names, function(item, indice){
 */
 
 // Code here
-
+function getUserById(users,id,cb){
+  for(var i=0; i<users.length; i+=1){
+    if(users[i].id===id){
+      return cb(users[i]);
+    }
+  }
+}
 // Do not edit the code below.
 var users = [
   {
